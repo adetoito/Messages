@@ -12,7 +12,8 @@ public class Main {
 
         String msg = "";
         String sender = "";
-        String receiver = "";
+
+        String yesOrNo;
 
         while (running) {
             while (looping) {
@@ -38,16 +39,25 @@ public class Main {
                     }
                 }
                 looping = true;
+                MessageList msgLog = new MessageList();
+                Message newMsg = new Message (sender, msg);
+
+                msgLog.appendMessage(newMsg);
+                msgLog.retrieveLog();
+
                 while (looping) {
-                    System.out.println("Who are you sending this to?");
-                    receiver = sc.nextLine();
-                    if (receiver.length() == 0) {
-                        System.out.println("Name not inputted.");
-                    } else {
+                    System.out.println("Would you like to send a message? Yes or No?");
+                    yesOrNo = sc.nextLine().toLowerCase();
+                    if (yesOrNo.equals("yes")) {
                         looping = false;
+                    } else if (yesOrNo.equals("no")) {
+                        running = false; looping = false;
+                    } else {
+                        System.out.println("Invalid answer. Type \"Yes\" or \"No\".");
                     }
                 }
-                Message newMsg = new Message (sender, receiver, msg);
+                looping = true;
+                System.out.println("");
             }
         }
 
