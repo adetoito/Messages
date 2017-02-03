@@ -18,7 +18,7 @@ public class Message {
     }
 
     public String returnTime () {
-        DateFormat timef = new SimpleDateFormat ("hh:mm a");
+        DateFormat timef = new SimpleDateFormat ("hh:mm:ss a");
         Date time = new Date ();
         return timef.format(time.getTime());
     }

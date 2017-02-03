@@ -12,8 +12,9 @@ public class Main {
 
         String msg = "";
         String sender = "";
-
         String yesOrNo;
+
+        MessageList msgLog = new MessageList();
 
         while (running) {
             while (looping) {
@@ -39,7 +40,6 @@ public class Main {
                     }
                 }
                 looping = true;
-                MessageList msgLog = new MessageList();
                 Message newMsg = new Message (sender, msg);
 
                 msgLog.appendMessage(newMsg);
@@ -60,6 +60,5 @@ public class Main {
                 System.out.println("");
             }
         }
-
     }
 }
